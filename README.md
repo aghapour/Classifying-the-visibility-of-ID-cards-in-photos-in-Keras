@@ -4,11 +4,11 @@ Classifying the visibility of ID cards in photos using Keras
 
 ## Classifying the visibility of ID cards in photos.
 
-![My Title](../markdownImages/Classes.PNG)
+![My Title](Classes.PNG)
 
 But, the sensor used when taking these photos was damaged and the photos are corrupted, as the images below show:
 
-![My Title](../markdownImages/ClassesNoisy.PNG)
+![My Title](ClassesNoisy.PNG)
 
  
 
