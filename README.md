@@ -1344,7 +1344,7 @@ modelSeq.compile(optimizer = 'adam',
 You can follow the results after finishing the training
 
 #### It can continue in the future work, or we can use another keras applications like Xception, ResNet, Inception, MobileNet, DenseNet and ... to increase the accuracy
-I stoped the training because it takes a lot of times in my laptop.
+
 
 
 ```python
@@ -1353,93 +1353,4 @@ modelSeq.fit(X3Train, yTrain,
                epochs=10, 
                verbose=1, 
                validation_data=(X3Test, yTest))
-```
-
-    Train on 1647 samples, validate on 291 samples
-    Epoch 1/10
-    1647/1647 [==============================] - 1373s 834ms/step - loss: 1.3864 - accuracy: 0.3376 - val_loss: 1.0986 - val_accuracy: 0.3436
-    Epoch 2/10
-     200/1647 [==>...........................] - ETA: 19:31 - loss: 1.0982 - accuracy: 0.3450
-
-
-    ---------------------------------------------------------------------------
-
-    KeyboardInterrupt                         Traceback (most recent call last)
-
-    <ipython-input-206-4ccbc4285f13> in <module>
-          3                epochs=10,
-          4                verbose=1,
-    ----> 5                validation_data=(X3Test, yTest))
-    
-
-    C:\ProgramData\Anaconda3\lib\site-packages\keras\engine\training.py in fit(self, x, y, batch_size, epochs, verbose, callbacks, validation_split, validation_data, shuffle, class_weight, sample_weight, initial_epoch, steps_per_epoch, validation_steps, validation_freq, max_queue_size, workers, use_multiprocessing, **kwargs)
-       1237                                         steps_per_epoch=steps_per_epoch,
-       1238                                         validation_steps=validation_steps,
-    -> 1239                                         validation_freq=validation_freq)
-       1240 
-       1241     def evaluate(self,
-    
-
-    C:\ProgramData\Anaconda3\lib\site-packages\keras\engine\training_arrays.py in fit_loop(model, fit_function, fit_inputs, out_labels, batch_size, epochs, verbose, callbacks, val_function, val_inputs, shuffle, initial_epoch, steps_per_epoch, validation_steps, validation_freq)
-        194                     ins_batch[i] = ins_batch[i].toarray()
-        195 
-    --> 196                 outs = fit_function(ins_batch)
-        197                 outs = to_list(outs)
-        198                 for l, o in zip(out_labels, outs):
-    
-
-    C:\ProgramData\Anaconda3\lib\site-packages\tensorflow_core\python\keras\backend.py in __call__(self, inputs)
-       3738         value = math_ops.cast(value, tensor.dtype)
-       3739       converted_inputs.append(value)
-    -> 3740     outputs = self._graph_fn(*converted_inputs)
-       3741 
-       3742     # EagerTensor.numpy() will often make a copy to ensure memory safety.
-    
-
-    C:\ProgramData\Anaconda3\lib\site-packages\tensorflow_core\python\eager\function.py in __call__(self, *args, **kwargs)
-       1079       TypeError: For invalid positional/keyword argument combinations.
-       1080     """
-    -> 1081     return self._call_impl(args, kwargs)
-       1082 
-       1083   def _call_impl(self, args, kwargs, cancellation_manager=None):
-    
-
-    C:\ProgramData\Anaconda3\lib\site-packages\tensorflow_core\python\eager\function.py in _call_impl(self, args, kwargs, cancellation_manager)
-       1119       raise TypeError("Keyword arguments {} unknown. Expected {}.".format(
-       1120           list(kwargs.keys()), list(self._arg_keywords)))
-    -> 1121     return self._call_flat(args, self.captured_inputs, cancellation_manager)
-       1122 
-       1123   def _filtered_call(self, args, kwargs):
-    
-
-    C:\ProgramData\Anaconda3\lib\site-packages\tensorflow_core\python\eager\function.py in _call_flat(self, args, captured_inputs, cancellation_manager)
-       1222     if executing_eagerly:
-       1223       flat_outputs = forward_function.call(
-    -> 1224           ctx, args, cancellation_manager=cancellation_manager)
-       1225     else:
-       1226       gradient_name = self._delayed_rewrite_functions.register()
-    
-
-    C:\ProgramData\Anaconda3\lib\site-packages\tensorflow_core\python\eager\function.py in call(self, ctx, args, cancellation_manager)
-        509               inputs=args,
-        510               attrs=("executor_type", executor_type, "config_proto", config),
-    --> 511               ctx=ctx)
-        512         else:
-        513           outputs = execute.execute_with_cancellation(
-    
-
-    C:\ProgramData\Anaconda3\lib\site-packages\tensorflow_core\python\eager\execute.py in quick_execute(op_name, num_outputs, inputs, attrs, ctx, name)
-         59     tensors = pywrap_tensorflow.TFE_Py_Execute(ctx._handle, device_name,
-         60                                                op_name, inputs, attrs,
-    ---> 61                                                num_outputs)
-         62   except core._NotOkStatusException as e:
-         63     if name is not None:
-    
-
-    KeyboardInterrupt: 
-
-
-
-```python
-
 ```
